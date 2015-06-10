@@ -47,9 +47,11 @@ Light_Gray='\e[0;37m'
 White='\e[1;37m'
 NC='\e[0m'
 
+
 function load_all_extra_fils {
+  echo 'hi man, you did it'
   startPATH=`pwd`
-  cd /home/simon/.bash
+  cd ~/.bash
   if [[ -f fakturabank_function.sh ]]; then
     source fakturabank_function.sh
   fi
@@ -65,9 +67,16 @@ function load_all_extra_fils {
   if [[ -f dark_git_voodoo.sh ]]; then
     source dark_git_voodoo.sh
   fi
-  notify-send -i info 'Du er klar for alt, alle filer er lastet, Det er nye eventyr i dag'
+  if [[ -f personal_awsome_git_voodoo.sh ]]; then
+    source personal_awsome_git_voodoo.sh
+  fi
+  if [[ -f prompt.sh ]]; then
+    source prompt.sh
+  fi
+
   cd $startPATH
 }
+
 
 function truncate_file {
   if [[ -f $1 ]]; then
